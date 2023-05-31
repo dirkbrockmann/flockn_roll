@@ -31,7 +31,7 @@ Out of the box you can use the explorable in a basic `index.html` file like this
 	</script>
 </html>
 ```
-The header `<script>` tag loads the bundle, the `<div>` in the document is the container in which the explorable gets anchored when the function `flockn-roll.load()` gets executed at the bottom. The `load` function needs the `<div>` container `id` as an argument.
+The header `<script>` tag loads the bundle, the `<div>` in the document is the container in which the explorable gets anchored when the function `flockn_roll.load()` gets executed at the bottom. The `load` function needs the `<div>` container `id` as an argument.
 
 ## Installing the whole package locally
 
