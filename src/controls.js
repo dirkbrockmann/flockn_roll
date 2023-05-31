@@ -2,32 +2,34 @@
 // it adds the widgets to the container and generates attaches the widget to the 
 // variables and parameters defined in parameters.js
 
+import {scaleLinear} from "d3"
 import * as widgets from "d3-widgets"
 import {range,map,toPairs} from "lodash-es"
 
 import cfg from "./config.js"
 import parameters from "./parameters.js"
 
-import {toArray,add_id_label,add_widget,get_variables,get_booleans,get_choices} from "./utils.js"
+import {toArray,add_id_label,add_widget,get_variables,get_booleans,get_choices,tadpole,scope} from "./utils.js"
+
 
 
 // defined variables for variables, booleans and choices, extracting the information from parameters.js
 
 const variables = get_variables(parameters);
 const booleans = get_booleans(parameters);
-const choices = get_choices(parameters);
+//const choices = get_choices(parameters);
 
 // adding ids and labels to the variables based on names for the variables, see utils.js for the function add_id_label
 
 add_id_label(variables)
 add_id_label(booleans)
-add_id_label(choices)
+//add_id_label(choices)
 
 // making arrays for the three types of parameters
 
 const va = toArray(variables);
 const bo = toArray(booleans);
-const ch = toArray(choices);
+//const ch = toArray(choices);
 
 // making the slider widgets objects, based on the variables
 
@@ -37,6 +39,8 @@ const sliders = map(va,
 					.label(v.label)
 					.range(v.range)
 					.value(v.default)
+					.girth(cfg.widgets.slider_girth)	
+					.knob(cfg.widgets.slider_knob)
 					.size(cfg.widgets.slider_size)
 		);
 
@@ -44,21 +48,24 @@ const sliders = map(va,
 		
 const toggles = map(bo, 
 		v => widgets.toggle()
-					.id(v.id).
-					label(v.label).
-					value(v.default)					
+					.id(v.id)
+					.label(v.label)
+					.value(v.default)
+					.labelposition(cfg.widgets.toggle_label_pos)
+					.fontsize(cfg.widgets.toggle_fontsize)
+					.size(13)
 		);
 
 // making the radio widgets objects, based on the choices
 		
-const radios = map(ch, 
-		v => widgets.radio()
-					.choices(v.choices)
-					.id(v.id)
-					.value(v.default)
-					.orientation(cfg.widgets.radio_orientation)
-					.labelposition(cfg.widgets.radio_label_position)
-		);
+// const radios = map(ch,
+// 		v => widgets.radio()
+// 					.choices(v.choices)
+// 					.id(v.id)
+// 					.value(v.default)
+// 					.orientation(cfg.widgets.radio_orientation)
+// 					.labelposition(cfg.widgets.radio_label_position)
+// 		);
 
 
 // you can remove some of these, if the explorable doesn't have a subset of parameters,
@@ -70,7 +77,7 @@ const radios = map(ch,
 		
 add_widget(bo,toggles);
 add_widget(va,sliders);
-add_widget(ch,radios);
+//add_widget(ch,radios);
 
 
 // This is generic for many explorables, the action buttons, play/pause, back and rewind
@@ -90,22 +97,54 @@ const buttons = [go,setup,reset];
 // to place the widgets on the grid. The positional stuff here needs to be adapted
 // to the needs of the explorable
 
+toggles[0].label("Orli's Magic Switch")
+
 export default (controls,grid)=>{
+		
+	const ct_pos=grid.position(cfg.widgets.cartoon_anchor.x,cfg.widgets.cartoon_anchor.y);	
+
+	const cartoon = controls.append("g").attr("id","cartoon")
+		.attr("transform","translate("+ct_pos.x +","+ ct_pos.y +")")
+
+	cartoon.append("path")
+		.attr("d",scope(cfg.widgets.cartoon_size*parameters.attraction_radius.widget.value(),270-parameters.blind_spot.widget.value() / 2))
+		.attr("id","attract_scope")
+	
+	 cartoon.append("path")
+		.attr("d",scope(cfg.widgets.cartoon_size*parameters.alignment_radius.widget.value(),270-parameters.blind_spot.widget.value() / 2))
+		.attr("id","orient_scope")
+
+	cartoon.append("path")
+ 		.attr("d",scope(cfg.widgets.cartoon_speed_factor*cfg.widgets.cartoon_size*parameters.speed.widget.value(),90+parameters.wiggle.widget.value() ))
+ 	.attr("id","speed")
+	
+	cartoon.append("path")
+		.attr("class","drop")
+		.attr("transform","scale(4)translate(0,"+(3)+")rotate(-90)")
+		.attr("d",tadpole(cfg.widgets.cartoon_tadpole_size))
+		.style("fill-opacity",1)
+		.style("fill","black")
+		.style("stroke","black")
+	 
+	cartoon.append("circle")
+ 		.attr("r",cfg.widgets.cartoon_size*parameters.collision_radius.widget.value())
+ 		.attr("id","repell_scope")
+
 
 	const sl_pos=grid.position(cfg.widgets.slider_anchor.x,range(sliders.length)
 			.map(x=>(cfg.widgets.slider_anchor.y+cfg.widgets.slider_gap*x)));
 	
 	const tg_pos=grid.position(cfg.widgets.toggle_anchor.x,cfg.widgets.toggle_anchor.y);	
 
-	const ra_pos=grid.position(cfg.widgets.radio_anchor.x,cfg.widgets.radio_anchor.y);		
+//	const ra_pos=grid.position(cfg.widgets.radio_anchor.x,cfg.widgets.radio_anchor.y);		
 	
 	sliders.forEach((sl,i) => sl.position(sl_pos[i]));
 	
 
 	toggles[0].position(tg_pos).labelposition(cfg.widgets.toggle_label_pos)
 
-	radios[0].position(ra_pos)
-		.size(cfg.widgets.radio_size).shape(cfg.widgets.radio_shape)
+//	radios[0].position(ra_pos)
+//		.size(cfg.widgets.radio_size).shape(cfg.widgets.radio_shape)
 	
 	go.position(grid.position(cfg.widgets.playbutton_anchor.x,cfg.widgets.playbutton_anchor.y))
 		.size(cfg.widgets.playbutton_size);
@@ -118,12 +157,12 @@ export default (controls,grid)=>{
 	controls.selectAll(".slider").data(sliders).enter().append(widgets.widget);
 	controls.selectAll(".toggle").data(toggles).enter().append(widgets.widget);
 	controls.selectAll(".button").data(buttons).enter().append(widgets.widget);
-	controls.selectAll(".radio").data(radios).enter().append(widgets.widget)
+//	controls.selectAll(".radio").data(radios).enter().append(widgets.widget)
 
 }
 
 // here are all the exported objects, all the parameters, their associated widgets and the action buttons
 
-export {sliders,toggles,radios,go,setup,reset,variables,booleans,choices}
+export {sliders,toggles,go,setup,reset,variables,booleans}
 
 
