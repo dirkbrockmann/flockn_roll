@@ -1,7 +1,7 @@
 {
   "name": "@explorables/flockn_roll",
   "title": "Flock'n Roll",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "CC-BY-4.0",
   "description": "This is a model for collective behavior in animals, e.g. flocks of birds or schools of fish.",
   "repository": {
