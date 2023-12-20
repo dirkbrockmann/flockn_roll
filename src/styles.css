@@ -1,33 +1,24 @@
 @import '~tachyons/css/tachyons.min.css';
 
-.control-panel > .border {
-	border:1px black solid;
-}
-
-.display-panel > .border {
-	border:1px black solid;
-}
-
-#attract_scope{
+.flockn_roll #attract_scope{
 	fill:rgb(220,220,220);
 	stroke:black;
 	stroke-width:0.5px;
 }
 
-#orient_scope{
+.flockn_roll #orient_scope{
 	fill:rgb(180,180,180);
 	stroke:black;
 	stroke-width:0.5px;
 }
 
-#repell_scope{
+.flockn_roll #repell_scope{
 	fill:rgb(255,255,255);
 	stroke:black;
 	stroke-width:0.5px;
-
 }
 
-#speed{
+.flockn_roll #speed{
 	fill:white;
 	stroke:black;
 	stroke-width:0.5px;
