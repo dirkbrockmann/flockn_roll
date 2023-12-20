@@ -38,9 +38,10 @@ const initialize = (display,config) => {
 	const agent = origin.selectAll(".agent").data(agents).enter().append("g")
 		.attr("class","agent")
 		.attr("transform",d => "translate("+X(d.x)+","+Y(d.y)+")rotate("+(d.theta)+")")
+		.style("fill",agent_color)
 	
 	agent.append("path").attr("d",tadpole(param.agentsize))
-			.style("fill",agent_color)
+
 	
 };
 
