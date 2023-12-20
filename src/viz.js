@@ -40,6 +40,7 @@ const initialize = (display,config) => {
 		.attr("transform",d => "translate("+X(d.x)+","+Y(d.y)+")rotate("+(d.theta)+")")
 	
 	agent.append("path").attr("d",tadpole(param.agentsize))
+			.style("fill",agent_color)
 	
 };
 
