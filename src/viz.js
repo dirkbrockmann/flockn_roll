@@ -9,6 +9,7 @@ import * as d3 from "d3"
 import param from "./parameters.js"
 import {agents} from "./model.js"
 import {tadpole,dist} from "./utils.js"
+import styles from "./styles.module.css"
 
 const L = param.L;
 const X = d3.scaleLinear().domain([0,L]);
@@ -35,14 +36,13 @@ const initialize = (display,config) => {
 		
 	const origin = display.append("g").attr("id","origin")
 	
-	const agent = origin.selectAll(".agent").data(agents).enter().append("g")
-		.attr("class","agent")
+	const agent = origin.selectAll("."+styles.agent).data(agents).enter().append("g")
+		.attr("class",styles.agent)
 		.attr("transform",d => "translate("+X(d.x)+","+Y(d.y)+")rotate("+(d.theta)+")")
 		.style("fill",agent_color)
 	
 	agent.append("path").attr("d",tadpole(param.agentsize))
 
-	
 };
 
 // the go function, this is bundled in simulation.js with the go function of
@@ -52,7 +52,7 @@ const initialize = (display,config) => {
 
 const go = (display,config) => {
 		
-	display.selectAll(".agent")
+	display.selectAll("."+styles.agent)
 		.attr("transform",d => "translate("+X(d.x)+","+Y(d.y)+")rotate("+(d.theta)+")")
 		.style("fill",agent_color)
 	
@@ -63,7 +63,7 @@ const go = (display,config) => {
 // e.g. a radio button is pressed, when the system is not running, e.g. when it is paused.
 
 const update = (display,config) => {
-	display.selectAll(".agent")
+	display.selectAll("."+styles.agent)
 		.attr("transform",d => "translate("+X(d.x)+","+Y(d.y)+")rotate("+(d.theta)+")")
 		.style("fill",agent_color)
 }

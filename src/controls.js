@@ -10,7 +10,7 @@ import cfg from "./config.js"
 import parameters from "./parameters.js"
 
 import {toArray,add_id_label,add_widget,get_variables,get_booleans,get_choices,tadpole,scope} from "./utils.js"
-
+import styles from "./styles.module.css"
 
 
 // defined variables for variables, booleans and choices, extracting the information from parameters.js
@@ -52,7 +52,7 @@ const toggles = map(bo,
 					.label(v.label)
 					.value(v.default)
 					.labelposition(cfg.widgets.toggle_label_pos)
-					.fontsize(cfg.widgets.toggle_fontsize)
+				//	.fontsize(cfg.widgets.toggle_fontsize)
 					.size(13)
 		);
 
@@ -108,27 +108,24 @@ export default (controls,grid)=>{
 
 	cartoon.append("path")
 		.attr("d",scope(cfg.widgets.cartoon_size*parameters.attraction_radius.widget.value(),270-parameters.blind_spot.widget.value() / 2))
-		.attr("id","attract_scope")
+		.attr("class",styles.attract_scope)
 	
 	 cartoon.append("path")
 		.attr("d",scope(cfg.widgets.cartoon_size*parameters.alignment_radius.widget.value(),270-parameters.blind_spot.widget.value() / 2))
-		.attr("id","orient_scope")
+		.attr("class",styles.orient_scope)
 
-	cartoon.append("path")
- 		.attr("d",scope(cfg.widgets.cartoon_speed_factor*cfg.widgets.cartoon_size*parameters.speed.widget.value(),90+parameters.wiggle.widget.value() ))
- 	.attr("id","speed")
+	cartoon.append("path") 		.attr("d",scope(cfg.widgets.cartoon_speed_factor*cfg.widgets.cartoon_size*parameters.speed.widget.value(),90+parameters.wiggle.widget.value() ))
+ 	.attr("class",styles.speed)
 	
 	cartoon.append("path")
-		.attr("class","drop")
+		.attr("class",styles.drop)
 		.attr("transform","scale(4)translate(0,"+(3)+")rotate(-90)")
 		.attr("d",tadpole(cfg.widgets.cartoon_tadpole_size))
-		.style("fill-opacity",1)
-		.style("fill","black")
-		.style("stroke","black")
+		
 	 
 	cartoon.append("circle")
  		.attr("r",cfg.widgets.cartoon_size*parameters.collision_radius.widget.value())
- 		.attr("id","repell_scope")
+ 		.attr("class",styles.repell_scope)
 
 
 	const sl_pos=grid.position(cfg.widgets.slider_anchor.x,range(sliders.length)

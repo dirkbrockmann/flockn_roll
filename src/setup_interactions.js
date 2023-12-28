@@ -14,7 +14,7 @@ import resetparameters from "./reset_parameters.js"
 import {iterate,initialize,update} from "./simulation.js"
 import {each} from "lodash-es"
 import {scope} from "./utils.js"
-
+import styles from "./styles.module.css"
 
 var timer = {}
 
@@ -30,10 +30,10 @@ const startstop = (display,config) => {
 // once this is called, all widgets are usable in the controls panel
 
 const update_cartoon = (controls) => {
-	controls.select("#attract_scope").attr("d",scope(cfg.widgets.cartoon_size*parameters.attraction_radius.widget.value(),270-parameters.blind_spot.widget.value() / 2))
-	controls.select("#orient_scope").attr("d",scope(cfg.widgets.cartoon_size*parameters.alignment_radius.widget.value(),270-parameters.blind_spot.widget.value() / 2))
-	controls.select("#repell_scope").attr("r",cfg.widgets.cartoon_size*parameters.collision_radius.widget.value())
-	controls.select("#speed").attr("d",scope(cfg.widgets.cartoon_speed_factor*cfg.widgets.cartoon_size*parameters.speed.widget.value(),90+parameters.wiggle.widget.value() ))
+	controls.select("."+styles.attract_scope).attr("d",scope(cfg.widgets.cartoon_size*parameters.attraction_radius.widget.value(),270-parameters.blind_spot.widget.value() / 2))
+	controls.select("."+styles.orient_scope).attr("d",scope(cfg.widgets.cartoon_size*parameters.alignment_radius.widget.value(),270-parameters.blind_spot.widget.value() / 2))
+	controls.select("."+styles.repell_scope).attr("r",cfg.widgets.cartoon_size*parameters.collision_radius.widget.value())
+	controls.select("."+styles.speed).attr("d",scope(cfg.widgets.cartoon_speed_factor*cfg.widgets.cartoon_size*parameters.speed.widget.value(),90+parameters.wiggle.widget.value() ))
 
 
 }
