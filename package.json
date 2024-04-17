@@ -1,13 +1,13 @@
 {
-  "name": "@explorables/flockn_roll",
+  "name": "flockn_roll",
   "title": "Flock'n Roll",
-  "subtitle": "Collective Animal Behavior",
+  "subtitle": "Kollekives Schwarverhalten",
   "version": "1.1.5",
   "license": "CC-BY-4.0",
-  "description": "This is a model for collective behavior in animals, e.g. flocks of birds or schools of fish based on simple rules of interaction.",
+  "description": "Das Explorable illustriert ein einfaches Modell zum Schwarmverhalten bei Tieren, z.b. bei Vögeln, Fischen und Insekten. Ein Schwarm ensteht durch einfache Wechselwirkungen wie Anziehung, Kollissionsvermeidung und dem Ausrichten an anderen Individuen in unmittelbarer Umgebung.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dirkbrockmann/flockn_roll.git"
+    "url": "git+https://github.com/dirkbrockmann/flockn_roll.git#cosmo"
   },
   "author": "Dirk Brockmann (https://rocs.hu-berlin.de)",
   "main": "./dist/index.js",
