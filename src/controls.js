@@ -47,7 +47,7 @@ const reset = widgets.button().actions(["rewind"])
 		
 const buttons = [go,setup,reset];
 
-toggles[0].label("Orli's Magic Switch")
+//toggles[0].label("Orli's Magic Switch")
 
 export default (controls,grid)=>{
 		
