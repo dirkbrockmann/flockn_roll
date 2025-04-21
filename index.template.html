@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{TITLE}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <article class="tw:font-sans tw:px-10 tw:max-w-5xl tw:justify-center">
+	<h1 class="tw:font-light tw:text-5xl">{{TITLE}}</h1>
+	<h2 class="tw:font-light tw:text-3xl">{{SUBTITLE}}</h2>
+	<p class="tw:font-light tw:text-2xl">{{DESCRIPTION}}</p>  
+  	<div id="{{CONTAINER_ID}}"></div>
+  </article>
+
+  <script type="text/javascript">
+      {{NAMESPACE}}.load("{{CONTAINER_ID}}");
+  </script>
+</body>
+</html>
+	
+	
+

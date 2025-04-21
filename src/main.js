@@ -1,6 +1,6 @@
 // this is the main file for the explorable that get's executed when the exporable is loaded
 
-import  'tachyons/css/tachyons.min.css'
+import  './tailwind.css'
 
 import cfg from "./container_config.js" // imports default classes and styles and parameters for the container
 import setup_container from "./setup_container.js"
@@ -13,6 +13,7 @@ import meta from "./meta.js"
 var display,controls,grid;
 
 const load = function (container_id,config=cfg) {
+	
 	
 // setting up the container
 	
