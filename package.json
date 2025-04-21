@@ -2,7 +2,7 @@
   "name": "@explorables/flockn_roll",
   "title": "Flock'n Roll",
   "subtitle": "Collective Animal Behavior",
-  "version": "2.0.2",
+  "version": "2.0.5",
   "license": "CC-BY-4.0",
   "description": "This is a model for collective behavior in animals, e.g. flocks of birds or schools of fish based on simple rules of interaction.",
   "repository": {
@@ -19,7 +19,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "release": "vite build && git add . && git commit -m 'build: prepare for release' && npm version patch && git push --follow-tags && npm publish --access public"
+    "release": "vite build && npm version patch && git add . && git commit --amend --no-edit && git push --follow-tags && npm publish --access public"
+
   },
   "keywords": [
     "complexity",
