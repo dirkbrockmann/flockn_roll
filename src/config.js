@@ -25,6 +25,6 @@ export default {
 		cartoon_tadpole_size:6
 	},
 	simulation: {
-		delay:0
+		delay:20
 	}
 }

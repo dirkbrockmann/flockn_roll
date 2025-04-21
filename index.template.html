@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Flock'n Roll</title>
+  <title>{{TITLE}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="index.js"></script>
 </head>
@@ -11,15 +11,15 @@
   <article class="tw:font-sans">
   <center>
 	<section class="tw:px-10 tw:max-w-5xl">
-		<h1 class="tw:font-light tw:text-5xl">Flock'n Roll - Collective Animal Behavior</h1>
-		<p class="tw:font-light tw:text-2xl">This is a model for collective behavior in animals, e.g. flocks of birds or schools of fish based on simple rules of interaction.</p>  
-		<div id="flockn_roll_container"></div>
+		<h1 class="tw:font-light tw:text-5xl">{{TITLE}} - {{SUBTITLE}}</h1>
+		<p class="tw:font-light tw:text-2xl">{{DESCRIPTION}}</p>  
+		<div id="{{CONTAINER_ID}}"></div>
 	<section>
   </center>
   </article>
 
   <script type="text/javascript">
-      flockn_roll.load("flockn_roll_container");
+      {{NAMESPACE}}.load("{{CONTAINER_ID}}");
   </script>
 </body>
 </html>

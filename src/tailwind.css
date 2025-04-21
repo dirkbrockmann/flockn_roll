@@ -1,0 +1,10 @@
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme) prefix(tw);
+/*@import "tailwindcss/preflight.css" layer(base); */
+@import "tailwindcss/utilities.css" layer(utilities) prefix(tw);
+
+/* Add this manually: scoped normalization */
+.explorable *, .explorable *::before, .explorable *::after {
+  box-sizing: border-box;
+}
