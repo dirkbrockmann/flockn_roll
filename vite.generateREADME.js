@@ -5,7 +5,7 @@ import pkg from './package.json';
 // define plugin
 export default () => {
   return {
-    name: 'generate-index-html',
+    name: 'generate-README-md',
     apply: 'build', // or 'serve' to run in dev too
     enforce: 'post',
     closeBundle() {
@@ -14,25 +14,23 @@ export default () => {
 	  const subtitle = pkg.subtitle;
 	  const description = pkg.description;
       const namespace = name.replace(/[-\s]/g, '_');
-      const containerId = `${namespace}_container`;
+      const ce_name = name.replace(/[_\s]/g, '-');
+      const templatePath = path.resolve('./templates/README.template.md');
+      const outputPath = path.resolve('./README.md');
 
-      const templatePath = path.resolve('./templates/index.template.html');
-      const outputPath = path.resolve('./dist/index.html');
-
-      let html = fs.readFileSync(templatePath, 'utf8');
-      html = html
+      let readme = fs.readFileSync(templatePath, 'utf8');
+      readme = readme
         .replace(/{{TITLE}}/g, title)
 	  	.replace(/{{SUBTITLE}}/g, subtitle)
 	  	.replace(/{{DESCRIPTION}}/g, description)
         .replace(/{{NAMESPACE}}/g, namespace)
-        .replace(/{{CONTAINER_ID}}/g, containerId);
+        .replace(/{{NAME}}/g, ce_name);
 	  
 	  
 	  console.log(`📝 Attempting to write to: ${outputPath}`);
 	  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-	  fs.writeFileSync(outputPath, html);
-	  console.log(`✅ Wrote index.html successfully`);
-      console.log(`📝 [vite] index.html generated for ${namespace}`);	 
+	  fs.writeFileSync(outputPath, readme);
+	  console.log(`✅ Wrote README.md successfully`);
     }
   };
 }

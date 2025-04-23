@@ -4,23 +4,28 @@
   <meta charset="UTF-8" />
   <title>Flock'n Roll</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="index.js"></script>
+  <script nomodule src="./index.umd.js"></script>
+  <script type="module">
+	      import load from './index.es.js';
+	      const flockn_roll = load('flockn_roll_container');
+  </script>
+
 </head>
 
 <body>
   <article class="tw:font-sans">
   <center>
 	<section class="tw:px-10 tw:max-w-5xl">
-		<h1 class="tw:font-light tw:text-5xl">Flock'n Roll - Collective Animal Behavior</h1>
+		<h1 class="tw:font-light tw:text-5xl">Flock'n Roll</h1>
+		<h2 class="tw:font-light tw:text-3xl">Collective Animal Behavior - Schooling Fish & Flocking Birds</h2>
 		<p class="tw:font-light tw:text-2xl">This is a model for collective behavior in animals, e.g. flocks of birds or schools of fish based on simple rules of interaction.</p>  
-		<div id="flockn_roll_container"></div>
-	<section>
+		<div id="flockn_roll_container"></div>		
+	</section>
   </center>
   </article>
-
-  <script type="text/javascript">
-      flockn_roll.load("flockn_roll_container");
-  </script>
+   <script nomodule type="text/javascript"> 
+	   const flockn_roll_instance = flockn_roll('flockn_roll_container'); 
+</script>
 </body>
 </html>
 	

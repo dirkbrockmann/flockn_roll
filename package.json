@@ -1,17 +1,18 @@
 {
   "name": "@explorables/flockn_roll",
   "title": "Flock'n Roll",
-  "subtitle": "Collective Animal Behavior",
+  "subtitle": "Collective Animal Behavior - Schooling Fish & Flocking Birds",
+  "description": "This is a model for collective behavior in animals, e.g. flocks of birds or schools of fish based on simple rules of interaction.",
+  "author": "Dirk Brockmann (https://synosy.github.io)",
   "version": "2.0.6",
   "license": "CC-BY-4.0",
-  "description": "This is a model for collective behavior in animals, e.g. flocks of birds or schools of fish based on simple rules of interaction.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dirkbrockmann/flockn_roll.git"
   },
-  "author": "Dirk Brockmann (https://synosy.github.io)",
-  "main": "./dist/index.js",
-  "module": "src/index.js",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "jsdelivr": "./dist/index.html",
   "files": [
     "dist/"
   ],

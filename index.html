@@ -6,10 +6,12 @@
   <script src="index.js"></script>
 </head>
 <body>
-  <div id="flockn_roll_container"></div>
- <script type="module">
-   import { load } from './src/main.js';
-   load("flockn_roll_container")
- </script>
+  <div id="explorable"></div>
+	 
+<script type="module">
+  import load from './src/main.js';
+  const explorable = load("explorable");
+  console.log(explorable.meta.title);
+</script>	 
 </body>
 </html>
