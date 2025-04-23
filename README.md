@@ -64,7 +64,7 @@ like so:
 </html>
 ```
 
-The header `<script>` tag loads the bundle, the `<div>` in the document is the container in which the explorable gets anchored when the function `flockn_roll.load()` gets executed at the bottom. The `load` function needs the `<div>` container `id` as an argument.
+The header `<script>` tag loads the bundle, the `<div>` in the document is the container in which the explorable gets anchored when the function `flockn_roll("explorable_container")` gets executed at the bottom. This function needs the `<div>` container `id` as an argument. The function returns an instance of the explorable and writes it to `explorable_instance`. That variable contains functions like `halt()`, `reset()` and variables `meta` and `config`.
 	
 If you want to make use of ES modules instead of UMD, here's a way that will work on modern (ES support) and legacy browsers (UMD only).
 
@@ -75,7 +75,7 @@ If you want to make use of ES modules instead of UMD, here's a way that will wor
 		...
 	    <script type="module">
 	  	      import load from 'https://cdn.jsdelivr.net/npm/@explorables/flockn_roll/dist/index.es.js';
-	  	      const flockn_roll = load('flockn_roll_container');
+	  	      const flockn_roll = load("explorable_container");
 	    </script>
 	    <script nomodule src="https://cdn.jsdelivr.net/npm/@explorables/flockn_roll/dist/index.umd.js"></script>	  
 		...
