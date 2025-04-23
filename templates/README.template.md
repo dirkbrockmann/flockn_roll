@@ -15,11 +15,7 @@ The explorable is part of the [**Complexity Exporables Collection**](https://www
 
 ### Just running the explorable
 
-If you just want to run the explorable you can use these two URLs: 
-
-* [**https://cdn.jsdelivr.net/npm/@explorables/{{NAMESPACE}}/**](https://cdn.jsdelivr.net/npm/@explorables/{{NAMESPACE}}/)
-
-* [**https://raw.githack.com/dirkbrockmann/{{NAMESPACE}}/main/dist/index.html**](https://raw.githack.com/dirkbrockmann/{{NAMESPACE}}/main/dist/index.html)
+If you just want to run the explorable you can [**Click here.**](https://raw.githack.com/dirkbrockmann/{{NAMESPACE}}/main/dist/index.html)
  
 
 ### Running a local copy

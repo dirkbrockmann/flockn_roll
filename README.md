@@ -15,11 +15,7 @@ The explorable is part of the [**Complexity Exporables Collection**](https://www
 
 ### Just running the explorable
 
-If you just want to run the explorable you can use these two URLs: 
-
-* [**https://cdn.jsdelivr.net/npm/@explorables/flockn_roll/**](https://cdn.jsdelivr.net/npm/@explorables/flockn_roll/)
-
-* [**https://raw.githack.com/dirkbrockmann/flockn_roll/main/dist/index.html**](https://raw.githack.com/dirkbrockmann/flockn_roll/main/dist/index.html)
+If you just want to run the explorable you can [**Click here.**](https://raw.githack.com/dirkbrockmann/flockn_roll/main/dist/index.html)
  
 
 ### Running a local copy
