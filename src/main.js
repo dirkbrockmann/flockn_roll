@@ -10,7 +10,7 @@ import { initialize as setup_simulation } from "./simulation.js";
 import { go, setup as setup_all, reset as reset_all } from "./controls.js";
 import meta from 'virtual:meta';
 
-export default function load(containerId, config = defaultConfig) {
+function load(containerId, config = defaultConfig) {
   // Setup the container
   const container = setup_container(containerId, config);
   const display = container.display;
@@ -40,3 +40,6 @@ export default function load(containerId, config = defaultConfig) {
     meta
   };
 }
+
+export { load, defaultConfig as config, meta };
+export default load;

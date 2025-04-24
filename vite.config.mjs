@@ -22,6 +22,7 @@ export default defineConfig({
 	},
     rollupOptions: {
       output: {
+		exports: 'named', // ← this is the key
         globals: {}
       }
     }

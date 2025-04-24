@@ -54,7 +54,7 @@ like so:
 	</body>
 		...
 	<script type="text/javascript">
-		const explorable_instance = {{NAMESPACE}}("explorable_container")
+		const explorable_instance = {{NAMESPACE}}.load("explorable_container")
 	</script>
 		...
 </html>
@@ -84,7 +84,7 @@ If you want to make use of ES modules instead of UMD, here's a way that will wor
 	</body>
 		...
 	<script nomodule type="text/javascript">
-		const explorable_instance = {{NAMESPACE}}("explorable_container")
+		const explorable_instance = {{NAMESPACE}}.load("explorable_container")
 	</script>
 		...
 </html>

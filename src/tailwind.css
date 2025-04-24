@@ -8,3 +8,13 @@
 .explorable *, .explorable *::before, .explorable *::after {
   box-sizing: border-box;
 }
+
+@layer utilities {
+  .debug-grid-16 {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 255, 0.1) 1px, transparent 1px);
+    background-size: calc(100% / 16) calc(100% / 16), calc(100% / 16) calc(100% / 16);
+    background-repeat: repeat;
+  }
+}
