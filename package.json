@@ -4,7 +4,7 @@
   "subtitle": "Collective Animal Behavior - Schooling Fish & Flocking Birds",
   "description": "This is a model for collective behavior in animals, e.g. flocks of birds or schools of fish based on simple rules of interaction.",
   "author": "Dirk Brockmann (https://synosy.github.io)",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "license": "CC-BY-4.0",
   "repository": {
     "type": "git",
