@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import generateIndexHtmlPlugin from './vite.generateIndexHtml.js';
 import generateReadmePlugin from './vite.generateREADME.js';
 import virtualMetaPlugin from './vite.virtualMeta.js';
+import pkg from './package.json';
 
 export default defineConfig({
   plugins: [	  	
@@ -16,7 +17,7 @@ export default defineConfig({
   build: {
 	lib: {
 	    entry: './src/main.js',
-	    name: 'flockn_roll',
+	    name: pkg.name?.split('/').pop(),
 	    fileName: (format) => `index.${format}.js`, //fileName: () => 'index.js',
 	    formats: ['es','umd'] // added "es" format
 	},
