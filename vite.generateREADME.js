@@ -26,8 +26,6 @@ export default () => {
         .replace(/{{NAMESPACE}}/g, namespace)
         .replace(/{{NAME}}/g, ce_name);
 	  
-	  
-	  console.log(`📝 Attempting to write to: ${outputPath}`);
 	  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 	  fs.writeFileSync(outputPath, readme);
 	  console.log(`✅ Wrote README.md successfully`);

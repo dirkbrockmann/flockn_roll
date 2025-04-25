@@ -28,7 +28,6 @@ export default () => {
         .replace(/{{CONTAINER_ID}}/g, containerId);
 	  
 	  
-	  console.log(`📝 Attempting to write to: ${outputPath}`);
 	  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 	  fs.writeFileSync(outputPath, html);
 	  console.log(`✅ Wrote index.html successfully`);
