@@ -32,4 +32,36 @@
 .agent {
 	stroke-width:0px;
 	stroke:black;
+	fill:black
+}
+
+@media (prefers-color-scheme: dark) {
+ 	.agent {
+		stroke:white;
+		fill:white
+	}
+	.drop{
+		fill:white;
+		stroke:grey;
+		stroke-width: 0.5px;
+	}
+	.speed {
+	fill:white;
+	stroke:white;
+	}
+	.repell_scope{
+		fill:black;
+		stroke:grey;
+		stroke-width:0.5px;
+	}
+	.orient_scope{
+		fill:rgb(180,180,180);
+		stroke:grey;
+		stroke-width:0.5px;
+	}
+	.attract_scope{
+		fill:rgb(220,220,220);
+		stroke:grey;
+		stroke-width:0.5px;
+	}
 }

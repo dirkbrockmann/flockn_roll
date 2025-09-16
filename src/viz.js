@@ -10,7 +10,7 @@ const Y = d3.scaleLinear().domain([0,L]);
 
 
 function agent_color(a){
-	return param.orli_switch.widget.value() ? d3.interpolateRainbow(a.theta / 360) : "black"
+	return param.orli_switch.widget.value() ? d3.interpolateRainbow(a.theta / 360) : null
 }
 
 
