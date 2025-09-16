@@ -15,6 +15,10 @@
   "files": [
     "dist/"
   ],
+  "exports": {
+    "import": "./dist/index.es.js",
+    "require": "./dist/index.umd.js"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
