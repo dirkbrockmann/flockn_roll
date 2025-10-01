@@ -20,7 +20,7 @@
   </center>
   </article>
    <script type="text/javascript"> 
-	   const {{NAMESPACE}}_instance = {{NAMESPACE}}.load('{{NAMESPACE}}'); 
+	   const {{NAMESPACE}}_instance = {{NAMESPACE}}.load('{{NAMESPACE}}_container'); 
 </script>
 </body>
 </html>
