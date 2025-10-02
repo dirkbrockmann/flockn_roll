@@ -46,13 +46,13 @@
   ],
   "dependencies": {
     "d3": "^7.8.5",
-    "d3-widgets": "^2.0.3",
+    "d3-widgets": "^2.1.1",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "vite-plugin-css-injected-by-js": "^3.5.2",
     "@tailwindcss/vite": "^4.1.4",
     "tailwindcss": "^4.1.4",
-    "vite": "^6.3.2"
+    "vite": "^6.3.2",
+    "vite-plugin-css-injected-by-js": "^3.5.2"
   }
 }
