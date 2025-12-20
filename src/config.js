@@ -3,6 +3,7 @@
 // the only place this is needed is for setting up the interactions in setup_interactions.js and in
 // controls.js
 
+
 export default { 
 	widgets:{
 		slider_size: 200,
